@@ -20,9 +20,11 @@ dnspython==2.4.2
 # Django packages
 django-widget-tweaks==1.5.0
 
-# PDF processing
+# PDF processing & OCR
 pdf2image==1.17.0
-Pillow==10.4.0  # Déjà présent
+pytesseract==0.3.10
+xhtml2pdf==0.2.13
+Pillow==10.4.0
 
 # Other dependencies
 language-tool-python==2.8.1
