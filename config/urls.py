@@ -18,9 +18,9 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path("", home_redirect_view, name="index"),
     # Searchx HTML CRUD
-    path("searchx/", include("searchx.urls")),
+    #path("searchx/", include("searchx.urls")),
     # Searchx APIs mounted at root (/api/...)
-    path("", include("searchx.urls_api")),
+    #path("", include("searchx.urls_api")),
     # Dashboard urls
     path("dashboard/", include("apps.dashboards.urls")),
     path("objectives/", include(("objectif.urls", "objectifs"), namespace="objectifs")),
