@@ -6,7 +6,15 @@ python-dotenv==1.1.1
 sqlparse==0.5.3
 typing-extensions==4.14.1
 whitenoise==6.9.0
-spacy==3.7.2
+
+# spaCy et dépendances compatibles Render
+wheel
+setuptools
+cython
+spacy==3.5.3
+blis==0.7.9
+
+# autres dépendances
 language-tool-python==2.8.1
 gtts==2.5.0
 Pillow==10.4.0
