@@ -8,10 +8,9 @@ sqlparse==0.5.3
 typing-extensions==4.14.1
 whitenoise==6.9.0
 
-# spaCy with pre-compiled dependencies
-spacy==3.7.4
---find-links https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.0/en_core_web_sm-3.7.0-py3-none-any.whl
-en-core-web-sm==3.7.0
+# NLP alternatives (lighter than spaCy)
+nltk==3.8.1
+textblob==0.18.0
 
 # Other dependencies
 language-tool-python==2.8.1
@@ -19,8 +18,3 @@ gtts==2.5.0
 Pillow==10.4.0
 pydub==0.25.1
 google-generativeai==0.3.2
-
-# Build dependencies
-wheel==0.43.0
-setuptools==70.0.0
-cython==3.0.10
