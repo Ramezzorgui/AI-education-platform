@@ -6,6 +6,7 @@ services:
     buildCommand: |
       pip install --upgrade pip
       pip install --no-cache-dir -r requirements.txt
+      python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptron_tagger'); nltk.download('vader_lexicon')"
       python manage.py collectstatic --noinput
       python manage.py migrate
     startCommand: gunicorn config.wsgi:application
@@ -14,5 +15,3 @@ services:
         value: config.settings
       - key: PYTHON_VERSION
         value: 3.11.9
-      - key: DISABLE_SPACY_COMPILE
-        value: "1"
