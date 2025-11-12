@@ -2,14 +2,14 @@ import os
 import random
 import string
 from pathlib import Path
-from mongoengine import connect
+# from mongoengine import connect
 
 from dotenv import load_dotenv
 
 from .template import  THEME_LAYOUT_DIR, THEME_VARIABLES
 
-MONGO_DB = os.getenv("MONGO_DB", "edusocial")
-MONGO_URI = os.getenv("MONGO_URI")
+#MONGO_DB = os.getenv("MONGO_DB", "edusocial")
+#MONGO_URI = os.getenv("MONGO_URI")
 
 load_dotenv()  # take environment variables from .env.
 
@@ -26,7 +26,7 @@ DEBUG = os.environ.get("DEBUG", 'True').lower() in ['true', 'yes', '1']
 
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "ai-education-platform-9zhl.onrender.com"]
 
 # Current DJANGO_ENVIRONMENT
 ENVIRONMENT = os.environ.get("DJANGO_ENVIRONMENT", default="local")
@@ -124,14 +124,13 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-connect(
-    db=os.getenv("MONGO_DB", "edusocial"),
-    host=os.getenv("MONGO_URI", "mongodb://localhost:27017/edusocial"),
-    alias="default",
-)
-AUTHENTICATION_BACKENDS = ["accounts.backends.MongoUserBackend"]
-SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
-
+#connect(
+ #   db=os.getenv("MONGO_DB", "edusocial"),
+  #  host=os.getenv("MONGO_URI", "mongodb://localhost:27017/edusocial"),
+   # alias="default",
+#)
+AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.ModelBackend"]
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
 
 AUTH_PASSWORD_VALIDATORS = [
