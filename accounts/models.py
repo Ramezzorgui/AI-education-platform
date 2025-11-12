@@ -8,7 +8,7 @@ from mongoengine import (
     EmailField,
     StringField,
 )
-from werkzeug.security import generate_password_hash, check_password_hash
+from django.contrib.auth.hashers import make_password, check_password
 
 
 class User(Document):
@@ -32,10 +32,10 @@ class User(Document):
 
     # Password helpers -------------------------------------------------
     def set_password(self, password: str) -> None:
-        self.password_hash = generate_password_hash(password)
+        self.password_hash = make_password(password)  # ✅ CORRIGÉ : utilise make_password
 
     def check_password(self, password: str) -> bool:
-        return check_password_hash(self.password_hash, password)
+        return check_password(password, self.password_hash)  # ✅ CORRIGÉ : utilise check_password
 
     # Django auth compatibility ----------------------------------------
     @property
