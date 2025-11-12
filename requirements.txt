@@ -20,9 +20,12 @@ dnspython==2.4.2
 # Django packages
 django-widget-tweaks==1.5.0
 
+# PDF processing
+pdf2image==1.17.0
+Pillow==10.4.0  # Déjà présent
+
 # Other dependencies
 language-tool-python==2.8.1
 gtts==2.5.0
-Pillow==10.4.0
 pydub==0.25.1
 google-generativeai==0.3.2
