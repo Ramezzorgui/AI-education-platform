@@ -17,6 +17,9 @@ pymongo==3.12.3
 mongoengine==0.24.2
 dnspython==2.4.2
 
+# Django packages
+django-widget-tweaks==1.5.0
+
 # Other dependencies
 language-tool-python==2.8.1
 gtts==2.5.0
