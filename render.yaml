@@ -9,7 +9,7 @@ services:
       python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptron_tagger'); nltk.download('vader_lexicon')"
       python manage.py collectstatic --noinput
       python manage.py migrate
-    startCommand: gunicorn config.wsgi:application
+    startCommand: cd /opt/render/project/src && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: config.settings
