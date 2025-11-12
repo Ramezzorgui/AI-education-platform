@@ -20,9 +20,10 @@ dnspython==2.4.2
 # Django packages
 django-widget-tweaks==1.5.0
 
-# PDF processing & OCR
+# PDF processing & OCR - VERSIONS COMPATIBLES
 pdf2image==1.17.0
 pytesseract==0.3.10
+reportlab==3.6.12
 xhtml2pdf==0.2.13
 Pillow==10.4.0
 

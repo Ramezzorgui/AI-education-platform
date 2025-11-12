@@ -8,9 +8,10 @@ from django.template.loader import get_template
 from django.views.decorators.http import require_POST, require_http_methods
 from bson.errors import InvalidId
 from datetime import datetime, timedelta
-from xhtml2pdf import pisa
+#from xhtml2pdf import pisa
 import json
 from pathlib import Path
+import os
 
 from .models import FeedItem
 from .forms import FeedItemForm, FeedItemSearchForm
@@ -337,19 +338,9 @@ def feed_export_pdf(request):
         'page_title': 'Export PDF - Feed'
     }
     
-    template = get_template('feed/feed_pdf.html')
-    html = template.render(context)
-    
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = f'attachment; filename="feed_export_{datetime.now().strftime("%Y%m%d_%H%M%S")}.pdf"'
-    
-    pisa_status = pisa.CreatePDF(html, dest=response)
-    
-    if pisa_status.err:
-        messages.error(request, 'Erreur lors de la génération du PDF')
-        return redirect('feed:list')
-    
-    return response
+    # ✅ Retourne un message simple - PDF désactivé temporairement
+    messages.info(request, '⚠️ Fonctionnalité PDF temporairement désactivée - En cours de maintenance')
+    return redirect('feed:list')
 
 
 # ========== FONCTIONNALITÉS IA AVANCÉES ==========
